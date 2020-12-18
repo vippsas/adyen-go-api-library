@@ -195,4 +195,5 @@ func (req *PaymentResponse) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
+
 }
