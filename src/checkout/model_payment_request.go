@@ -114,20 +114,20 @@ type PaymentRequest struct {
 	// If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
 	ThreeDSAuthenticationOnly bool `json:"threeDSAuthenticationOnly,omitempty"`
 	// Set to true if the payment should be routed to a trusted MID.
-	TrustedShopper bool `json:"trustedShopper,omitempty"`
-    AuthenticationData *AuthenticationData `json:"authenticationData,omitempty"`
+	TrustedShopper              bool                         `json:"trustedShopper,omitempty"`
+	DelegatedAuthenticationData *DelegatedAuthenticationData `json:"delegatedAuthenticationData,omitempty"`
 }
 
-type AuthenticationData struct {
-    DelegatedAuthenticationRequested bool                 `json:"delegatedAuthenticationRequested"`
-    FirstAuthenticationFactor        AuthenticationFactor `json:"firstAuthenticationFactor,omitempty"`
-    SecondAuthenticationFactor       AuthenticationFactor `json:"secondAuthenticationFactor,omitempty"`
+type DelegatedAuthenticationData struct {
+	DelegatedAuthenticationRequested bool                 `json:"delegatedAuthenticationRequested"`
+	FirstAuthenticationFactor        AuthenticationFactor `json:"firstAuthenticationFactor,omitempty"`
+	SecondAuthenticationFactor       AuthenticationFactor `json:"secondAuthenticationFactor,omitempty"`
 }
 
 type AuthenticationFactor string
 
 const (
-    AuthenticationFactorPossessionOnly                       AuthenticationFactor = "PossesionOnly"
-    AuthenticationFactorUserVerificationBiometricFingerprint AuthenticationFactor = "UserVerificationBiometricFingerprint"
-    AuthenticationFactorUserVerificationPinOrPassword        AuthenticationFactor = "UserVerificationPinOrPassword"
+	AuthenticationFactorPossessionOnly                       AuthenticationFactor = "possessionOnly"
+	AuthenticationFactorUserVerificationBiometricFingerprint AuthenticationFactor = "userVerificationBiometricFingerprint"
+	AuthenticationFactorUserVerificationPinOrPassword        AuthenticationFactor = "userVerificationPinOrPassword"
 )
