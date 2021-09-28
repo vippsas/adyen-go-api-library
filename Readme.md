@@ -1,3 +1,7 @@
+## NOTE
+This is just an attempt to fix a broken go.mod file. We have troubles
+importing the tag in a docker build.
+
 ## Adyen Golang API Client Library
 
 The Adyen API Library for golang enables you to work with Adyen APIs.
